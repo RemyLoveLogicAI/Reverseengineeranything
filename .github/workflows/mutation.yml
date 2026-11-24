@@ -24,7 +24,8 @@ jobs:
   mutation:
     name: Mutation sweep (${{ matrix.suite }})
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    # reverse-tools has ~1,039 mutants and reached 954 when the 60-minute cap hit.
+    timeout-minutes: 120
     strategy:
       fail-fast: false
       max-parallel: 2
